@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva de Salas - Inatel</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+
+<div class="phone-frame">
+  
+  <div id="screen-home" class="screen active">
+    <div class="header">
+      <h1>Inatel</h1>
+      <p>Reserva de Salas</p>
+    </div>
+    <div class="content">
+      <label>Data</label>
+      <input type="date" id="input-date">
+      
+      <label>Horário de Início</label>
+      <input type="time" id="input-start">
+      
+      <label>Horário de Fim</label>
+      <input type="time" id="input-end">
+      
+      <label>Tipo de Sala</label>
+      <select id="input-type">
+        <option>Sala de Estudos</option>
+        <option>Laboratório</option>
+      </select>
+      
+      <button onclick="goToSelection()" class="btn-primary">BUSCAR</button>
+    </div>
+  </div>
+
+  <div id="screen-selection" class="screen">
+    <div class="header">
+      <h1>Inatel</h1>
+      <p>Seleção</p>
+    </div>
+    <div class="content">
+      <div class="room-card full">
+        <div class="room-info">
+          <h3>Sala 1 - Prédio 4</h3>
+          <span class="status occupied">Ocupada</span>
+        </div>
+      </div>
+      
+      <div class="room-card">
+        <div class="room-info">
+          <h3>Sala 2 - Prédio 3</h3>
+          <p>Ar condicionado • Wifi</p>
+          <span class="status free">Disponível</span>
+        </div>
+        <button onclick="selectRoom('Sala 2 - Prédio 3')" class="btn-small">Selecionar</button>
+      </div>
+
+      <div class="room-card">
+        <div class="room-info">
+          <h3>Sala 302 - Prédio 1</h3>
+          <p>Projetor • Lousa</p>
+          <span class="status free">Disponível</span>
+        </div>
+        <button onclick="selectRoom('Sala 302 - Prédio 1')" class="btn-small">Selecionar</button>
+      </div>
+      
+      <button onclick="goBack('screen-home')" class="btn-secondary">Voltar</button>
+    </div>
+  </div>
+
+  <div id="screen-confirmation" class="screen">
+    <div class="header">
+      <h1>Inatel</h1>
+      <p>Confirmação</p>
+    </div>
+    <div class="content center-content">
+      <div class="confirm-box">
+        <h3>Confirmar reserva:</h3>
+        <p id="confirm-room-name" class="highlight">...</p>
+        
+        <p>Dia:</p>
+        <p id="confirm-date" class="highlight">...</p>
+        
+        <p>Horário:</p>
+        <p><span id="confirm-start">...</span> às <span id="confirm-end">...</span></p>
+      </div>
+      
+      <button onclick="finishReservation()" class="btn-primary">CONFIRMAR RESERVA</button>
+      <button onclick="goBack('screen-selection')" class="btn-secondary">Cancelar</button>
+    </div>
+  </div>
+
+</div>
+
+    <script src="script.js"></script> </body>
+</html>
